@@ -1,5 +1,5 @@
 {
-  "name": "DeckMaster",
+  "name": "deck-master",
   "integrations": {
     "capacitor": {}
   },

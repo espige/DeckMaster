@@ -2,7 +2,7 @@ import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'io.ionic.starter',
-  appName: 'DeckMaster',
+  appName: 'deck-master',
   webDir: 'build',
   bundledWebRuntime: false
 };
