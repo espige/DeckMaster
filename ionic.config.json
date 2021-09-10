@@ -1,0 +1,7 @@
+{
+  "name": "DeckMaster",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
