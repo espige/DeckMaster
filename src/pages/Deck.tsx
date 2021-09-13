@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   IonButtons,
   IonContent,
@@ -9,11 +9,20 @@ import {
   IonToolbar,
 } from '@ionic/react';
 import { useParams } from 'react-router';
-import ExploreContainer from '../components/ExploreContainer';
-import './Page.css';
+import * as Scry from 'scryfall-sdk';
 
 const Page: React.FC = () => {
   const { name } = useParams<{ name: string }>();
+
+  useEffect(() => {
+    const getCard = async () => {
+      const card = await Scry.Cards.byName('Omnath, Locus of the Roill', true);
+      console.log(card);
+      const rulings = await Scry.Rulings.byId(card.id);
+      console.log(rulings);
+    };
+    getCard();
+  });
 
   return (
     <IonPage>
@@ -32,7 +41,7 @@ const Page: React.FC = () => {
             <IonTitle size="large">{name}</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ExploreContainer name={name} />
+        <h1>TEST</h1>
       </IonContent>
     </IonPage>
   );
