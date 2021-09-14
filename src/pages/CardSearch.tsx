@@ -12,10 +12,13 @@ import {
 } from '@ionic/react';
 import React, { useEffect, useState } from 'react';
 import * as Scry from 'scryfall-sdk';
+import { Card } from 'scryfall-sdk';
+import CardDisplay from '../components/CardDisplay';
 
 const CardSearch: React.FC = () => {
   const [searchString, setSearchString] = useState('');
   const [cardList, setCardList] = useState<string[]>([]);
+  const [cardInfo, setCardInfo] = useState<Card>();
 
   useEffect(() => {
     const getCard = async () => {
@@ -44,9 +47,20 @@ const CardSearch: React.FC = () => {
         />
       </IonHeader>
       <IonContent>
+        {cardInfo && <CardDisplay card={cardInfo} />}
         <IonList className="ion-padding">
           {cardList.map((card) => (
-            <IonItem key={card}>{card}</IonItem>
+            <IonItem
+              button
+              key={card}
+              onClick={async () => {
+                const info = await Scry.Cards.byName(card);
+                // console.log(info);
+                setCardInfo(info);
+              }}
+            >
+              {card}
+            </IonItem>
           ))}
         </IonList>
       </IonContent>
