@@ -14,6 +14,8 @@ import {
   addCircleOutline,
   createOutline,
   downloadOutline,
+  saveOutline,
+  statsChartOutline,
 } from 'ionicons/icons';
 
 const Menu2: React.FC = () => (
@@ -34,8 +36,16 @@ const Menu2: React.FC = () => (
           <IonLabel>Edit Deck</IonLabel>
         </IonItem>
         <IonItem button>
+          <IonIcon icon={statsChartOutline} slot="start" />
+          <IonLabel>Deck Stats</IonLabel>
+        </IonItem>
+        <IonItem button>
           <IonIcon icon={downloadOutline} slot="start" />
           <IonLabel>Export</IonLabel>
+        </IonItem>
+        <IonItem button>
+          <IonIcon icon={saveOutline} slot="start" />
+          <IonLabel>Save Deck</IonLabel>
         </IonItem>
       </IonList>
     </IonContent>
