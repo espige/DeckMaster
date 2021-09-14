@@ -17,8 +17,9 @@ import {
   saveOutline,
   statsChartOutline,
 } from 'ionicons/icons';
+import { menuController } from '@ionic/core';
 
-const Menu2: React.FC = () => (
+const Menu: React.FC = () => (
   <IonMenu contentId="main" side="start" type="overlay">
     <IonHeader>
       <IonToolbar>
@@ -27,7 +28,11 @@ const Menu2: React.FC = () => (
     </IonHeader>
     <IonContent>
       <IonList>
-        <IonItem button>
+        <IonItem
+          button
+          routerLink="/search"
+          onClick={async () => menuController.toggle()}
+        >
           <IonIcon icon={addCircleOutline} slot="start" />
           <IonLabel>Add Card</IonLabel>
         </IonItem>
@@ -52,4 +57,4 @@ const Menu2: React.FC = () => (
   </IonMenu>
 );
 
-export default Menu2;
+export default Menu;
