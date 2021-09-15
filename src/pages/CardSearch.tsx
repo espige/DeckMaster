@@ -44,6 +44,7 @@ const CardSearch: React.FC = () => {
         <IonSearchbar
           value={searchString}
           onIonChange={(e) => setSearchString(e.detail.value!)}
+          debounce={750}
         />
       </IonHeader>
       <IonContent>
